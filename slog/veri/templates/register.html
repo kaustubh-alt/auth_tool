@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+</head>
+
+<style>
+    body {
+        background-image: linear-gradient(45deg, black, #041c43);
+        color: white;
+        font-weight: bolder;
+        height: 100vh;
+    }
+</style>
+
+<body>
+    <div class="container mt-5">
+        {% if msg %}
+        <p class="text-center rounded bg-warning-subtle text-warning">{{msg}}</p>
+        {% endif %}
+        <h1 class="text-center">Register</h1>
+        <form method="POST" class="mt-4">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+    <h1 style="text-align: center;margin-top: 10% ;font-size: medium;">already registered <a href="/login">login
+            here</a></h1>
+</body>
+
+</html>

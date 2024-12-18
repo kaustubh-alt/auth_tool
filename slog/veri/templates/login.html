@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: linear-gradient(160deg, white, #3678b4, black);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                {% if msg %}
+                <p class="text-center rounded bg-{{color}}-subtle text-{{color}} p-2">{{msg}}</p>
+                {% endif %}
+                <div class="card shadow-lg">
+                    <div class="card-body">
+                        <h3 class="text-center mb-4">Login</h3>
+                        <form method="POST" action="/login/">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                {{ form.as_p }}
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </div>
+                        </form>
+                        {% if messages %}
+                        <div class="mt-3">
+                            {% for message in messages %}
+                            <div class="text-danger bg-danger-subtle">{{ message }}</div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <p class="text-center fs-5 w-100 fw-500">Forgot password<a href="/forgot_password/">Click Here</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
