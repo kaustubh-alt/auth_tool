@@ -11,9 +11,9 @@ from django.db import IntegrityError
 
 def send_mail(rec,idd,forpass):
     server = smtplib.SMTP('smtp.gmail.com',587)
-    senderr = "abroadasssit@gmail.com"
+    senderr = "Your-email"
     server.starttls()
-    server.login(senderr,"zyfd itrz qluj kcmh")
+    server.login(senderr,"password_here")
     message = MIMEMultipart()
     message['From'] = senderr
     message['To'] = rec
